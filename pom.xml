@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.spotec.tmd</groupId>
     <artifactId>tmd-nitro-kms</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>tmd-nitro-kms</name>
     <description>tmd-nitro-kms</description>
     <url/>
