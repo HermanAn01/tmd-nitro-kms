@@ -10,7 +10,6 @@ public class TmdNitroKmsApplication {
 
     public static void main(String[] args) throws IOException {
         SpringApplication.run(TmdNitroKmsApplication.class, args);
-        EnclaveServer.startServer();  // 启动 vsock 监听
     }
 
 }
