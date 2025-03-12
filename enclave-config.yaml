@@ -1,0 +1,4 @@
+enclave:
+  memory_mib: 2048
+  cpu_count: 2
+  vcpu_count: 2
