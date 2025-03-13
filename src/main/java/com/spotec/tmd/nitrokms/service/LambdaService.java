@@ -35,7 +35,7 @@ public class LambdaService {
         jsonObject.put("data", plaintext);
         jsonObject.put("keyId", keyId);
         jsonObject.put("action", "encrypt");
-        return invokeLambda("handleRequest", jsonObject.toJSONString());
+        return invokeLambda("kms02", jsonObject.toJSONString());
     }
 
     public String decrypt(String ciphertext) {
@@ -45,6 +45,6 @@ public class LambdaService {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("data", ciphertext);
         jsonObject.put("action", "decrypt");
-        return invokeLambda("handleRequest", jsonObject.toJSONString());
+        return invokeLambda("kms02", jsonObject.toJSONString());
     }
 }
