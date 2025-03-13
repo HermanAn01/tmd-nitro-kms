@@ -28,25 +28,18 @@ public class LambdaService {
 
     public String encrypt(String plaintext, String keyId) {
         // 构造加密请求的payload
-        //private String data;
-        //private String keyId;
-        //private String action;
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("data", plaintext);
         jsonObject.put("keyId", keyId);
         jsonObject.put("action", "encrypt");
-        System.out.println(jsonObject.toJSONString());
         return invokeLambda("kms02", jsonObject.toJSONString());
     }
 
     public String decrypt(String ciphertext) {
         // 构造解密请求的payload
-        //private String data;
-        //private String action;
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("data", ciphertext);
         jsonObject.put("action", "decrypt");
-        System.out.println(jsonObject.toJSONString());
         return invokeLambda("kms02", jsonObject.toJSONString());
     }
 }
