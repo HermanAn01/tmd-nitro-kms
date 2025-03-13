@@ -35,6 +35,7 @@ public class LambdaService {
         jsonObject.put("data", plaintext);
         jsonObject.put("keyId", keyId);
         jsonObject.put("action", "encrypt");
+        System.out.println(jsonObject.toJSONString());
         return invokeLambda("kms02", jsonObject.toJSONString());
     }
 
@@ -45,6 +46,7 @@ public class LambdaService {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("data", ciphertext);
         jsonObject.put("action", "decrypt");
+        System.out.println(jsonObject.toJSONString());
         return invokeLambda("kms02", jsonObject.toJSONString());
     }
 }

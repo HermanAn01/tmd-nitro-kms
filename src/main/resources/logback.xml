@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- 控制台输出日志 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%level] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 设置 root 日志级别为 INFO，并使用 STDOUT 输出 -->
+    <root level="info">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>

@@ -1,5 +1,7 @@
 package com.spotec.tmd.nitrokms.controller;
 
+import com.spotec.tmd.nitrokms.model.DecryptBean;
+import com.spotec.tmd.nitrokms.model.EncryptBean;
 import com.spotec.tmd.nitrokms.service.LambdaService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +19,14 @@ public class KmsController {
     }
 
     @PostMapping("/encrypt")
-    public String encryptData(@RequestParam String plaintext, @RequestParam String keyId) {
-        String encrypt = lambdaService.encrypt(plaintext, keyId);
+    public String encryptData(@RequestBody EncryptBean encryptBean) {
+        String encrypt = lambdaService.encrypt(encryptBean.getPlaintext(), encryptBean.getKeyId());
         return encrypt;
     }
 
     @PostMapping("/decrypt")
-    public String decryptData(@RequestParam String ciphertext) {
-        String decrypt = lambdaService.decrypt(ciphertext);
+    public String decryptData(@RequestBody DecryptBean decryptBean) {
+        String decrypt = lambdaService.decrypt(decryptBean.getCiphertext());
         return decrypt;
     }
 }
