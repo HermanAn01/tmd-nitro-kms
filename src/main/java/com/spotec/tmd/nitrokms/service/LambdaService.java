@@ -1,5 +1,6 @@
 package com.spotec.tmd.nitrokms.service;
 
+import com.alibaba.fastjson.JSONObject;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.lambda.LambdaClient;
 import software.amazon.awssdk.services.lambda.model.InvokeRequest;
@@ -27,13 +28,23 @@ public class LambdaService {
 
     public String encrypt(String plaintext, String keyId) {
         // 构造加密请求的payload
-        String payload = String.format("{\"plaintext\":\"%s\", \"keyId\":\"%s\"}", plaintext, keyId);
-        return invokeLambda("encrypt", payload);
+        //private String data;
+        //private String keyId;
+        //private String action;
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("data", plaintext);
+        jsonObject.put("keyId", keyId);
+        jsonObject.put("action", "encrypt");
+        return invokeLambda("handleRequest", jsonObject.toJSONString());
     }
 
     public String decrypt(String ciphertext) {
         // 构造解密请求的payload
-        String payload = String.format("{\"ciphertext\":\"%s\"}", ciphertext);
-        return invokeLambda("decrypt", payload);
+        //private String data;
+        //private String action;
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("data", ciphertext);
+        jsonObject.put("action", "decrypt");
+        return invokeLambda("handleRequest", jsonObject.toJSONString());
     }
 }
